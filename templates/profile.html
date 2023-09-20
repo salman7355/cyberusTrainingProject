@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Posts</title>
+  </head>
+  <body>
+    <div class="bg-black flex text-white h-full" id="main">
+      <!-- Left sideBar -->
+      <div
+        class="fixed left-0 w-[15%] h-full st overflow-hidden flex flex-col items-start font-bold justify-between py-10 px-3 border-e-2"
+      >
+        <div class="flex flex-col gap-8">
+          <h1 class="capitalize text-4xl mb-10">Blog</h1>
+          <div>
+            <a href="/posts" class="text-2xl">Home</a>
+          </div>
+          <div>
+            <a href="/my_profile" class="text-2xl">My Profile</a>
+          </div>
+        </div>
+        <a
+          class="text-2xl mx-auto border-2 border-white px-8 py-2 rounded-xl hover:bg-white hover:text-black cursor-pointer"
+          href="/logout"
+          >Logout</a
+        >
+      </div>
+
+      <!-- Posts -->
+      <div
+        class="w-[65%] mx-auto py-10 flex flex-col items-center justify-center"
+        id="posts"
+      >
+        <!-- user Post -->
+        {% for post in userPosts %}
+        <div class="flex flex-col gap-5 w-[50%] p-6">
+          <!-- user -->
+          <div class="flex gap-3">
+            <div class="w-[60px] h-[60px]">
+              <img
+                src="{{post[0]}}"
+                alt="/"
+                class="rounded-full h-full w-full"
+              />
+            </div>
+            <div class="flex flex-col gap-2 w-full">
+              <p>{{post[1]}}</p>
+              <p class="ms-auto">{{post[3]}}</p>
+            </div>
+          </div>
+          <!-- IMage -->
+
+          <div class="flex flex-col h-full w-full gap-3 justify-center">
+            <img
+              src="{{post[2]}}"
+              alt="/"
+              class="rounded-xl w-full object-cover h-[35rem]"
+            />
+            <p>{{post[4]}}</p>
+            <div class="w-full flex justify-center font-bold cursor-pointer">
+              <p class="w-[50%]">Like</p>
+              <p>Comment</p>
+            </div>
+          </div>
+          <!-- likes and comments -->
+        </div>
+        {%endfor%}
+      </div>
+
+      <!-- Add new Post -->
+      <!-- <div
+        class="w-[35%] mx-auto py-10 flex-col items-center hidden gap-5 border-2 h-96 justify-center my-auto rounded-3xl shadow-2xl shadow-white"
+        id="add"
+      >
+        <p
+          class="font-bold cursor-pointer ms-auto text-2xl me-10 -mt-20"
+          onclick="Posts()"
+        >
+          X
+        </p>
+        <h1 class="text-center font-bold text-3xl my-5">Add New Post</h1>
+        <form method="post" enctype="multipart/form-data">
+          <div class="flex flex-col gap-4">
+            <input
+              type="text"
+              name="caption"
+              placeholder="Add Caption"
+              class="p-2 rounded-xl focus:outline-none text-black"
+            />
+            <input type="file" name="post" accept="image/*" />
+            <button
+              type="submit"
+              class="bg-blue-950 rounded-2xl border-2 w-52 h-12 mx-auto font-bold text-white text-xl mt-6"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div> -->
+
+      <!-- right side bar -->
+      <div
+        class="h-full fixed right-0 w-[20%] flex flex-col justify-between border-s-2 py-10 px-8"
+      >
+        <div class="flex gap-3">
+          <div class="w-[60px] h-[60px]">
+            <img
+              src="{{Userimage}}"
+              alt="/"
+              class="rounded-full h-full w-full"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <p>{{username}}</p>
+            <p>{{email}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

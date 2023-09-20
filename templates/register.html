@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="/static/favicon/flask.jpg" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="flex">
+      <div
+        class="w-1/3 hidden bg-gray-900 md:flex flex-col h-screen text-center text-white"
+      >
+        <h1 class="text-4xl font-bold mt-40 tracking-wide">Welcome Back</h1>
+        <p class="text-xl w-5/6 mt-10 mx-auto">
+          To keep connected with us please login with your personal information
+        </p>
+        <a href="/login">
+          <p
+            class="mt-20 border-blue-50 border-2 w-40 h-12 cursor-pointer flex items-center justify-center rounded-2xl font-bold text-xl mx-auto"
+          >
+            Sign In
+          </p>
+        </a>
+      </div>
+      <div
+        class="form flex flex-col mx-auto justify-center items-center h-screen"
+      >
+        <h1 class="text-black font-bold text-3xl md:-mt-20 items-center">
+          Create Account
+        </h1>
+        <form
+          method="post"
+          class="flex flex-col gap-6 mt-14 text-white mx-auto items-center"
+          enctype="multipart/form-data"
+        >
+          <div class="relative">
+            <i
+              class="fa fa-user fa-lg absolute left-3 top-[50%] translate-y-[-50%]"
+            ></i>
+            <input
+              type="text"
+              placeholder="Name"
+              name="username"
+              class="bg-gray-900 p-2 rounded-xl w-[20rem] md:w-[25rem] focus:outline-none px-9"
+              required
+            />
+          </div>
+          <div class="relative">
+            <i
+              class="fa fa-envelope absolute left-3 top-[50%] translate-y-[-50%]"
+            ></i>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              class="bg-gray-900 p-2 rounded-xl w-[20rem] md:w-[25rem] px-9 focus:outline-none"
+              required
+            />
+          </div>
+          <div class="relative">
+            <i
+              class="fa fa-lock fa-lg absolute left-3 top-[50%] translate-y-[-50%]"
+            ></i>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              class="bg-gray-900 p-2 rounded-xl w-[20rem] md:w-[25rem] px-9 focus:outline-none"
+              required
+            />
+          </div>
+          <p class="text-red-700 text-xl font-bold">{{errorMessage}}</p>
+          <div>
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              class="bg-gray-900 p-2 rounded-xl w-[20rem] md:w-[25rem] px-9 focus:outline-none"
+              required
+            />
+          </div>
+          <p class="text-red-700 text-xl font-bold">{{imageErrorMessage}}</p>
+          <button
+            type="submit"
+            class="bg-gray-900 rounded-2xl border-2 w-52 h-12 mx-auto font-bold text-white text-xl mt-6"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <div class="h-screen bg-slate-600">
+      <div
+        class="flex justify-between w-full items-center bg-black shadow-xl shadow-slate-500 h-20 text-white p-10 font-bold text-xl"
+      >
+        <a href="/">Admin</a>
+        <div class="flex gap-5">
+          <a href="/">
+            <button
+              class="border-white border-2 p-2 rounded-2xl hover:shadow-md hover:shadow-slate-100 px-5 hover:bg-blue-800"
+            >
+              Users
+            </button>
+          </a>
+          <a href="/allPosts">
+            <button
+              class="border-white border-2 p-2 rounded-2xl hover:shadow-md hover:shadow-slate-100 px-5 hover:bg-blue-800"
+            >
+              Posts
+            </button>
+          </a>
+          <a href="/logout">
+            <button
+              class="border-white border-2 p-2 rounded-2xl hover:shadow-md hover:shadow-slate-100 px-5 hover:bg-blue-800"
+            >
+              Logout
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col mt-16 text-center">
+        <h1 class="font-bold text-5xl">USERS</h1>
+        <div
+          class="flex flex-wrap w-full mt-10 justify-center md:justify-start ps-10 gap-6 h-44"
+        >
+          {% for user in users %}
+          <div
+            class="bg-gray-900 h-[10rem] flex flex-col w-[20rem] text-xl text-white font-bold rounded-2xl"
+          >
+            <div
+              id="{{ user.id }}"
+              class="flex w-full flex-col p-6 items-start gap-2"
+            >
+              <p>{{user[1]}}</p>
+              <p>{{user[2]}}</p>
+            </div>
+
+            <a
+              class="flex justify-end p-4 -mt-2 hover:text-black cursor-pointer"
+              href="{{url_for('delete_user' , id=user[0])}}"
+              onclick="return confirm('Are You Sure You Want To Delete {{user[1]}}')"
+            >
+              delete
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
