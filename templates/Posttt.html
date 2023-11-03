@@ -7,21 +7,23 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="bg-black text-white flex h-screen">
+    <div class="text-white flex h-screen">
       <!-- Imageee -->
       <div class="w-[70%] h-screen bg-slate-800 fixed">
+        <a href="{{url_for('posts')}}" class="text-5xl p-5 cursor-pointer">x</a>
         <div
-          class="w-[70%] h-[35rem] flex justify-center items-center mt-28 m-auto"
+          class="w-[70%] h-[35rem] flex justify-center items-center mt-7 m-auto"
         >
           <img src="/{{post[2]}}" alt="/" class="w-full h-full" />
         </div>
       </div>
 
       <!-- Comments section -->
+
       <div
         class="bg-white h-screen absolute right-0 w-[30%] p-3 flex flex-col gap-3"
       >
-        <h2 class="text-black">{{post[1]}}</h2>
+        <h2 class="text-black text-center text-bold text-3xl">{{post[1]}}</h2>
         {% for comment in comments%}
         <div class="bg-slate-400 rounded-xl">
           <div class="flex p-3 gap-3">
